@@ -9,6 +9,7 @@ const person = (props) => {
             <p> Name provided as attribute: {props.name}, age: {props.age}</p>
             <p>Age { Math.floor(Math.random() * 100) }</p>
             <p> {props.children} </p>
+            <button onClick={props.click} >Sadness Button Handle</button>
         </div>
     )
 };

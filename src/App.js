@@ -40,7 +40,10 @@ function App() {
       <h1>Hi hi</h1>
       <Person name="Gagan" age="21" />
       <Person name="Imagination" age="999" />
-      <Person name="Sadness" age="21" />
+      {/* Here we are passing a handler to testButton so it can be accessed from within the component
+        also the click here can be any name
+      */}
+      <Person name="Sadness" age="21" click={testButton}/>
       <Person> Test fetching data between element tags </Person>
       <button onClick={ testButton }>Click Me :D</button>
       <br/>
