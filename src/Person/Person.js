@@ -8,6 +8,7 @@ const person = (props) => {
             <p> I'm a Person!</p>
             <p> Name provided as attribute: {props.name}, age: {props.age}</p>
             <p>Age { Math.floor(Math.random() * 100) }</p>
+            <p> {props.children} </p>
         </div>
     )
 };

@@ -12,6 +12,7 @@ function App() {
       <Person name="Gagan" age="21" />
       <Person name="Imagination" age="999" />
       <Person name="Sadness" age="21" />
+      <Person> Test fetching data between element tags </Person>
     </div>
 
     // Method 2 - Old method
