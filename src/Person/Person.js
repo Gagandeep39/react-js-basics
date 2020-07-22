@@ -1,10 +1,11 @@
 import React from "react";
+import './Person.css';
 // ES6 style 
 // Props is the tecnical ketword for the attribute of an element
 // Here we can hoever give anyname
 const person = (props) => {
     return (
-        <div>
+        <div class="Person">
             <hr/>
             <p> I'm a Person!</p>
             <p> Name provided as attribute: {props.name}, age: {props.age}</p>
