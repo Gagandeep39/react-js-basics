@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
 
-function testButton() {
-  alert("Lol");
-}
+// function testButton() {
+//   alert("Lol");
+// }
+
+
 
 function App() {
+
+  // Creating a statehook
+  // personState -> Used to access the values
+  // setPersonState -> USed to change the values
+  const [ personState, setPersonState ] = useState({
+      persons: [
+        { name: 'Gagan', age: '21' }
+      ],
+    otherState: 'Lol xD'
+  })
+
+  // NOTE: Do not orget the `const` here
+  const testButton = () => {
+    console.log('Executed Click methd');
+    setPersonState({
+      persons: [
+        { name: 'Gagan', age: '21' }
+      ]
+    })
+  }
+
+  const [count, setCount] = useState(0);
+
   return (
     // Method 1 - Standard MEthod, It gets compiled to below method before execution
     // Below code contains a jsx structure i.e it can have only 1 root element which is div element
@@ -18,6 +43,8 @@ function App() {
       <Person name="Sadness" age="21" />
       <Person> Test fetching data between element tags </Person>
       <button onClick={ testButton }>Click Me :D</button>
+      <br/>
+      <button onClick={ ()=> {setCount(count+1)} }> Counter: {count} </button>
     </div>
 
     // Method 2 - Old method
