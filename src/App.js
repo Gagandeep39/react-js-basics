@@ -31,6 +31,12 @@ function App() {
     })
   }
 
+  const style = {
+    backgroundColor: 'white',
+    font: 'inherit',
+    border: '1x solid blue'
+  }
+
 
   // Will be executed whenever data is entered in text box
   const nameChangeHandler = (event) => {
@@ -56,7 +62,8 @@ function App() {
       */}
       <Person name="Sadness" age="21" click={testButton}/>
       <Person> Test fetching data between element tags </Person>
-      <button onClick={ testButton }>Click Me :D</button>
+      <button style={style}
+      onClick={ testButton }>Click Me :D</button>
       <br/>
       <button onClick={ ()=> {setCount(count+1)} }> Counter: {count} </button>
     </div>
