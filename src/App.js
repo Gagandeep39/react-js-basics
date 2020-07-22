@@ -9,9 +9,9 @@ function App() {
     // Below code contains a jsx structure i.e it can have only 1 root element which is div element
     <div className='App'>
       <h1>Hi hi</h1>
-      <Person />
-      <Person />
-      <Person />
+      <Person name="Gagan" age="21" />
+      <Person name="Imagination" age="999" />
+      <Person name="Sadness" age="21" />
     </div>
 
     // Method 2 - Old method
