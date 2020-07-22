@@ -10,6 +10,8 @@ function App() {
     <div className='App'>
       <h1>Hi hi</h1>
       <Person />
+      <Person />
+      <Person />
     </div>
 
     // Method 2 - Old method
