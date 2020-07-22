@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
 
+function testButton() {
+  alert("Lol");
+}
+
 function App() {
   return (
     // Method 1 - Standard MEthod, It gets compiled to below method before execution
@@ -13,6 +17,7 @@ function App() {
       <Person name="Imagination" age="999" />
       <Person name="Sadness" age="21" />
       <Person> Test fetching data between element tags </Person>
+      <button onClick={ testButton }>Click Me :D</button>
     </div>
 
     // Method 2 - Old method
