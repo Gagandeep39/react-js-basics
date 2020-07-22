@@ -31,6 +31,17 @@ function App() {
     })
   }
 
+
+  // Will be executed whenever data is entered in text box
+  const nameChangeHandler = (event) => {
+    setPersonState({
+      persons: [
+        { name: event.target.value, age: '21' }
+      ]
+    })
+    console.log('Name change Method executed');
+  }
+
   const [count, setCount] = useState(0);
 
   return (
@@ -39,7 +50,7 @@ function App() {
     <div className='App'>
       <h1>Hi hi</h1>
       <Person name="Gagan" age="21" />
-      <Person name="Imagination" age="999" />
+      <Person name="Imagination" age="999" change={nameChangeHandler} />
       {/* Here we are passing a handler to testButton so it can be accessed from within the component
         also the click here can be any name
       */}
