@@ -12,6 +12,7 @@ const person = (props) => {
             <p>Age { Math.floor(Math.random() * 100) }</p>
             <p> {props.children} </p>
             <button onClick={props.click} >Sadness Button Handle</button>
+            <button onClick={props.deleteButton} >Delete</button>
 
             {/* Will be executed whever someinput is etered in Sadnes textbox */}
             <input type="text" onChange={props.change} value={props.change}></input>

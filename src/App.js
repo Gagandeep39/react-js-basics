@@ -9,14 +9,16 @@ import UserOutput from './UserOutput/UserOutput';
 //   alert("Lol");
 // }
 
+// Array must be outside the method else after clicking delete, the array will be reeinitialized
+let personArray = [
+  { name: "cv fbgnhmj", age: 0 },
+  { name: "axsdcfvgbhnmj,kl.", age: 1 },
+  { name: "sdcfvgbhnjmk,l./;", age: 2 },
+  { name: "dfgrhyjkilo;p'", age: 3 },
+]
 
 function App() {
-  let personArray = [
-    { name: "cv fbgnhmj", age: 0 },
-    { name: "axsdcfvgbhnmj,kl.", age: 1 },
-    { name: "sdcfvgbhnjmk,l./;", age: 2 },
-    { name: "dfgrhyjkilo;p'", age: 3 },
-  ]
+  
   
 
   // Creating a statehook
@@ -80,6 +82,16 @@ function App() {
     })
   }
 
+
+  // Added a sdelete button hadler
+  const deleteButtonHandler = (personIndex) => {
+    console.log(personArray);
+    personArray.splice(personIndex, 1);
+    console.log(personArray);
+    console.log(personArray.length);
+    setPersonState({persons: personArray})
+  }
+
   return (
     // Method 1 - Standard MEthod, It gets compiled to below method before execution
     // Below code contains a jsx structure i.e it can have only 1 root element which is div element
@@ -92,19 +104,19 @@ function App() {
 
       showHideState.buttonState ==true ?
         <div>
-          <Person name="Gagan" age="21" />
-          <Person name="Imagination" age="999" change={nameChangeHandler} />
+          {/* <Person name="Gagan" age="21" />
+          <Person name="Imagination" age="999" change={nameChangeHandler} /> */}
           {/* Here we are passing a handler to testButton so it can be accessed from within the component
             also the click here can be any name
           */}
       
-          <Person name="Sadness" age="21" click={testButton}/>
-          <Person> Test fetching data between element tags </Person>
+          {/* <Person name="Sadness" age="21" click={testButton}/>
+          <Person> Test fetching data between element tags </Person> */}
 
 
           {/* Displaying an array of person */}
-          {personArray.map(person => {
-            return <Person name={person.name} age={person.age}/>
+          {personArray.map((person, index) => {
+            return <Person name={person.name} age={person.age} deleteButton={() => deleteButtonHandler(index)}/>
           })}
         </div>
       : null
