@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
+import UserInput from './UserInput/UserInput';
+import UserOutput from './UserOutput/UserOutput';
 
 // function testButton() {
 //   alert("Lol");
@@ -50,6 +52,17 @@ function App() {
 
   const [count, setCount] = useState(0);
 
+
+  const [ usernameState, setUsernameState ] = useState({
+    username: 'Superman'
+  })
+
+  const usernameChangeHandler = (event) => {
+    setUsernameState({
+      username: event.target.value
+    })
+  }
+
   return (
     // Method 1 - Standard MEthod, It gets compiled to below method before execution
     // Below code contains a jsx structure i.e it can have only 1 root element which is div element
@@ -60,12 +73,33 @@ function App() {
       {/* Here we are passing a handler to testButton so it can be accessed from within the component
         also the click here can be any name
       */}
+      
       <Person name="Sadness" age="21" click={testButton}/>
       <Person> Test fetching data between element tags </Person>
       <button style={style}
       onClick={ testButton }>Click Me :D</button>
       <br/>
       <button onClick={ ()=> {setCount(count+1)} }> Counter: {count} </button>
+
+
+
+
+
+
+
+
+
+
+      {/* Example 2 */}
+      <UserInput change={usernameChangeHandler} currentName={usernameState.username}/>
+      <UserOutput userName={usernameState.username}/>
+      <UserOutput userName={usernameState.username} />
+      <UserOutput userName={usernameState.username}/>
+
+
+
+
+
     </div>
 
     // Method 2 - Old method
