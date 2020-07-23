@@ -26,10 +26,10 @@ function App() {
   // setPersonState -> USed to change the values
   const [ personState, setPersonState ] = useState({
       persons: [
-        { name: "cv fbgnhmj", age: 0 },
-        { name: "axsdcfvgbhnmj,kl.", age: 1 },
-        { name: "sdcfvgbhnjmk,l./;", age: 2 },
-        { name: "dfgrhyjkilo;p'", age: 3 },
+        { id: "dfghyj", name: "cv fbgnhmj", age: 0 },
+        { id: "dgfhj", name: "axsdcfvgbhnmj,kl.", age: 1 },
+        { id: "dfxgthy", name: "sdcfvgbhnjmk,l./;", age: 2 },
+        { id: "cdfvgb", name: "dfgrhyjkilo;p'", age: 3 },
       ],
     otherState: 'Lol xD'
   })
@@ -52,11 +52,16 @@ function App() {
 
 
   // Will be executed whenever data is entered in text box
-  const nameChangeHandler = (event) => {
+  const nameChangeHandler = (event, id) => {
+
+    const personIndex = personState.persons.findIndex((p) => p.id === id)
+    const person = {...personState.persons[personIndex]}
+    person.name = event.target.value;
+    const persons = [...personState.persons]
+    persons[personIndex] = person
+
     setPersonState({
-      persons: [
-        { name: event.target.value, age: '21' }
-      ]
+      persons: persons
     })
     console.log('Name change Method executed');
   }
@@ -121,7 +126,7 @@ function App() {
 
           {/* Displaying an array of person */}
           {personState.persons.map((person, index) => {
-            return <Person name={person.name} age={person.age} deleteButton={() => deleteButtonHandler(index)}/>
+            return <Person key={person.id} change={(event) => nameChangeHandler(event, person.id)} name={person.name} age={person.age} deleteButton={() => deleteButtonHandler(index)}/>
           })}
         </div>
       : null

@@ -15,7 +15,7 @@ const person = (props) => {
             <button onClick={props.deleteButton} >Delete</button>
 
             {/* Will be executed whever someinput is etered in Sadnes textbox */}
-            <input type="text" onChange={props.change} value={props.change}></input>
+            <input type="text" onChange={props.change}></input>
         </div>
     )
 };
