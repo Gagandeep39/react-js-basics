@@ -26,7 +26,10 @@ function App() {
   // setPersonState -> USed to change the values
   const [ personState, setPersonState ] = useState({
       persons: [
-        { name: 'Gagan', age: '21' }
+        { name: "cv fbgnhmj", age: 0 },
+        { name: "axsdcfvgbhnmj,kl.", age: 1 },
+        { name: "sdcfvgbhnjmk,l./;", age: 2 },
+        { name: "dfgrhyjkilo;p'", age: 3 },
       ],
     otherState: 'Lol xD'
   })
@@ -85,11 +88,13 @@ function App() {
 
   // Added a sdelete button hadler
   const deleteButtonHandler = (personIndex) => {
-    console.log(personArray);
-    personArray.splice(personIndex, 1);
-    console.log(personArray);
-    console.log(personArray.length);
-    setPersonState({persons: personArray})
+    // personArray.splice(personIndex, 1);
+    // setPersonState({persons: personArray})
+
+    // Ass a good prcatie we must always update the arryain immute manner i.e without changing inital state
+    const persons = [...personState.persons];
+    persons.splice(personIndex, 1)
+    setPersonState({persons: persons})
   }
 
   return (
@@ -115,7 +120,7 @@ function App() {
 
 
           {/* Displaying an array of person */}
-          {personArray.map((person, index) => {
+          {personState.persons.map((person, index) => {
             return <Person name={person.name} age={person.age} deleteButton={() => deleteButtonHandler(index)}/>
           })}
         </div>
