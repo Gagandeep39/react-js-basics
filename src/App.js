@@ -10,8 +10,14 @@ import UserOutput from './UserOutput/UserOutput';
 // }
 
 
-
 function App() {
+  let personArray = [
+    { name: "cv fbgnhmj", age: 0 },
+    { name: "axsdcfvgbhnmj,kl.", age: 1 },
+    { name: "sdcfvgbhnjmk,l./;", age: 2 },
+    { name: "dfgrhyjkilo;p'", age: 3 },
+  ]
+  
 
   // Creating a statehook
   // personState -> Used to access the values
@@ -68,6 +74,7 @@ function App() {
   })
 
   const showHideButtonHandler = (event) => {
+    console.log('Toggled show hide');
     setShowHideState({
       buttonState: !showHideState.buttonState
     })
@@ -93,6 +100,12 @@ function App() {
       
           <Person name="Sadness" age="21" click={testButton}/>
           <Person> Test fetching data between element tags </Person>
+
+
+          {/* Displaying an array of person */}
+          {personArray.map(person => {
+            return <Person name={person.name} age={person.age}/>
+          })}
         </div>
       : null
       }
@@ -100,12 +113,6 @@ function App() {
       onClick={ testButton }>Click Me :D</button>
       <br/>
       <button onClick={ ()=> {setCount(count+1)} }> Counter: {count} </button>
-
-
-
-
-
-
 
 
 
